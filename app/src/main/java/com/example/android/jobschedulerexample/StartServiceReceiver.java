@@ -11,7 +11,7 @@ import com.example.android.jobschedulerexample.util.JobUtil;
 import java.util.Objects;
 
 /**
- * When a broadcast is launched by our app, another app, or the device (think charger plugged in, battery low, device restarted, network connected), our app will recieve this broadcast and the code within onReceive will be executed. Here we have our onReceive launching our JobService
+ * When a broadcast is launched by our app, another app, or the device (think charger plugged in, battery low, device restarted, network connected), our app will recieve this broadcast and the code within onReceive will be executed. Here we have our onReceive scheduling a Job.
  */
 
 public class StartServiceReceiver extends BroadcastReceiver {

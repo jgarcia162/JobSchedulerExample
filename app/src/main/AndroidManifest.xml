@@ -23,14 +23,6 @@
             android:label="Headset Plugged In Service"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
 
-        <!--<receiver android:name=".StartServiceReceiver"-->
-            <!--android:exported="true">-->
-            <!--<intent-filter>-->
-                <!--&lt;!&ndash;this intent filter is the action our broadcast receiver in our app is listening for. When a headset is plugged in, our StartServiceReceiver will execute its onReceive method which calls JobUtil.scheduleJob() which then schedules the Job we asked to be scheduled&ndash;&gt;-->
-                <!--<action android:name="android.intent.action.HEADSET_PLUG"/>-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
-
     </application>
 
 </manifest>
