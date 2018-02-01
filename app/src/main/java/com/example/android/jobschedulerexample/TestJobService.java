@@ -23,7 +23,6 @@ public class TestJobService extends JobService {
         return true;
     }
 
-
     @Override
     public boolean onStopJob(JobParameters jobParameters) {
         //reschedule the job after it's been executed if we want this to be a reocurring action.
