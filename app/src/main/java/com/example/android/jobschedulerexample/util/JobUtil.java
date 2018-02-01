@@ -23,16 +23,13 @@ public class JobUtil {
         ComponentName serviceComponent = new ComponentName(context, TestJobService.class);
 
 
-        /*The JobInfo object allows you to define the criteria for the JobService. Specifying when the Job should be performed, what broadcasts to listen for to start the Job (i.e. device charging, connected to network, etc..) and other settings.*/
+        /*The JobInfo object allows you to define the criteria for the JobService. Specifying when the Job should be performed, what broadcasts to listen for to start the Job (i.e. device charging, connected to network, etc..) and other settings. the Job ID is used by the OS to ensure multiple instances of the same Jobs are not scheduled, this number is arbitrary and we can specify our own*/
         JobInfo.Builder jobInfo = new JobInfo.Builder(0, serviceComponent);
 
-        //tell the Job to wait at least one second before executing
-        jobInfo.setMinimumLatency(1000);
-
-        //tell the job to wait a maximum of 3 seconds
+        /*Tell Android to wait a maximum of 3 seconds. Why? The entire point of the JobScheduler is to group together similar tasks then execute them simultaneously in order to save battery. Android will wait a set amount of time for other similar Jobs to be scheduled before beginning execution of those jobs. Example, multiple apps need to download some data, one app schedules a networking job, android will hold on to that job for a set amount of time to see if any other apps also request to use the network connection. We can tell Android to not wait more than x amount of time with the setOverrideDeadline. As the name implies, we are overriding the OS' default deadline */
         jobInfo.setOverrideDeadline(3000);
 
-        //device must be charging for job to execute
+        //device does not need to be charging for job to execute
         jobInfo.setRequiresCharging(false);
 
         //these and other settings can be specified
