@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JobSchedulerExample</string>
+    <string name="headset_message">Headset Plugged!</string>
+</resources>
